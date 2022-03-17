@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 10:22:53 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/17 12:18:03 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/17 13:55:54 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,18 @@ void init_stack(t_a *stack)
 
 int main(int argc, char **argv)
 {
-    t_a *head;
+    t_a *head = NULL;
 
    // init_stack(head);
 
     if (argc < 2 || argv[1] == NULL)
+        error();
+    head = checkcommand(head,argc,argv);
+    while(head)
     {
-        write(2,"Error\n",6);
-        return (0);
-    }
-    checkcommand(head,argc,argv);
-    
-    
-    //   t_a *tmp1;
-    //   tmp1=head;
-      //printf("value %d \n",head->val);
-   
-
-    // while(head)
-    // {
-    //    printf("value %d \n",tmp1->val);
-    //    tmp1 = tmp1->next; 
-        
-    //  }
-
-
-
+       printf("node => %d \n",head->val);
+       head = head->next;
+     }
    ft_lst_free(head);
     return (0);
 }

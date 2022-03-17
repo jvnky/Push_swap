@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:59:41 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/17 12:19:16 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/17 13:10:21 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@ t_a *ft_lst_new(int val)
 {
     t_a *tmp;
     
-    
     tmp = malloc(sizeof(t_a));
-    tmp->next = NULL;
     tmp->val = val;
-
+    tmp->next = NULL;
     return(tmp);
 }
 
 //ajout fin maillon.
-void ft_lst_addback(t_a **begin,t_a *new)
+t_a *ft_lst_addback(t_a **begin,t_a *new)
 {
     t_a *tmp;
 
@@ -34,15 +32,13 @@ void ft_lst_addback(t_a **begin,t_a *new)
     if (tmp == NULL)
     {
         *begin = new;
-        return;
+        return (*begin);
     }
     while(tmp->next)
-    {
         tmp = tmp->next;
-    }
-    
     tmp->next = new;
     new->next = NULL;
+    return (tmp);
 }
 
 void ft_lst_free(t_a *begin)
