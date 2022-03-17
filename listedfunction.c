@@ -6,19 +6,19 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:59:41 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/10 13:51:53 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/17 12:19:16 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
 //creation maillon
-t_love *lst_new(int val)
+t_a *ft_lst_new(int val)
 {
-    t_love *tmp;
+    t_a *tmp;
     
     
-    tmp = malloc(sizeof(t_love));
+    tmp = malloc(sizeof(t_a));
     tmp->next = NULL;
     tmp->val = val;
 
@@ -26,9 +26,9 @@ t_love *lst_new(int val)
 }
 
 //ajout fin maillon.
-void lst_addback(t_love **begin,t_love *new)
+void ft_lst_addback(t_a **begin,t_a *new)
 {
-    t_love *tmp;
+    t_a *tmp;
 
     tmp = *begin;
     if (tmp == NULL)
@@ -45,9 +45,9 @@ void lst_addback(t_love **begin,t_love *new)
     new->next = NULL;
 }
 
-void lst_free(t_love *begin)
+void ft_lst_free(t_a *begin)
 {   
-        t_love *tmp1;
+        t_a *tmp1;
 
         while (begin && begin->next) 
         {
@@ -57,5 +57,4 @@ void lst_free(t_love *begin)
         }
         if(begin)
             free(begin);
-        
 }

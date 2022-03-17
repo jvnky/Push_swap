@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 10:24:40 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/10 13:51:40 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/17 11:38:33 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-
-typedef struct s_love
+#include <stdio.h>
+typedef struct s_a
 {
     int val;
-    struct s_love *next;
+    int size_a;
+    
+    struct s_a *next;
 
-} t_love;
+} t_a;
+
 
 int         checkav(char *av);
 int         ft_strlen(const char *str);
@@ -30,10 +33,12 @@ int			ft_atoi(const char *str);
 char		*ft_itoa(int nbr);
 int	        ft_strcmp(char *s1, char *s2);
 char	    *ft_strdup(char *s1);
-void        lst_addback(t_love **begin,t_love *new);
-t_love      *lst_new(int val);
-void        lst_free(t_love *begin);
-
-
-
+void        ft_lst_addback(t_a **begin,t_a *new);
+t_a         *ft_lst_new(int val);
+void        ft_lst_free(t_a *begin);
+int		    ft_isdigit(char c);
+void        checkcommand(t_a *stack_a, int ac, char **av);
+int         valduplicate(t_a *stack, int nbr);
+int	        is_char_digit(char *str);
+void	    error();
 #endif

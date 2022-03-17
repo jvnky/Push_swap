@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 10:57:45 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/10 12:44:23 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/17 11:22:30 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,10 @@ char	*ft_strdup(char *s1)
 	}
 	ptr[i] = '\0';
 	return (ptr);
+}
+
+void	error(void)
+{
+	write (2, "Error\n", 6);
+	exit(1);
 }

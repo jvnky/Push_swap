@@ -6,53 +6,38 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:35:33 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/10 12:40:27 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/17 11:15:45 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-static int	ft_expo(int a, int n)
+int		ft_isdigit(char c)
 {
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		return (0);
-	return (a * ft_expo(a, n - 1));
+	return (c >= '0' && c <= '9');
 }
 
-static int	ft_isspace(const char c)
+int		ft_atoi(const char *str)
 {
-	if (c == '\v' || c == '\t' || c == '\f' || c == '\n' ||
-			c == '\r' || c == ' ')
-		return (1);
-	return (0);
-}
-
-int			ft_atoi(const char *str)
-{
-	int signe;
-	int result;
 	int i;
+	int negative;
+	int res;
 
-	signe = 1;
-	if (!str)
-		return (0);
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-	{
-		signe *= -1;
-		str++;
-	}
-	else if (*str == '+')
-		str++;
-	while (*str && (*str >= '0' && *str <= '9'))
-		str++;
-	str--;
-	result = 0;
 	i = 0;
-	while ((ft_strlen(str) > 0) && (*str >= '0' && *str <= '9'))
-		result += (*(str--) - '0') * ft_expo(10, i++);
-	return (result * signe);
+	negative = 1;
+	res = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			negative = negative * -1;
+		i++;
+	}
+	while ((ft_isdigit(str[i])) && str[i] != '\0')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * negative);
 }
