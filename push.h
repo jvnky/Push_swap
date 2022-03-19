@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 10:24:40 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/17 13:47:33 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/18 23:17:29 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int         valduplicate(t_a *stack, int nbr);
 int	        is_char_digit(char *str);
 void	    error();
 char		**ft_split(const char *str, char c);
-void        split_check(int ac,char **tab,t_a *stack,t_a *tmp);
+t_a        *split_check(int ac,char **tab,t_a *stack,t_a *tmp);
 
 #endif

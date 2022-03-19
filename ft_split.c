@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:06:44 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/17 13:47:37 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/18 23:39:30 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char				**ft_split(const char *str, char c)
 		return (0);
 	is = 0;
 	if (!(tab = malloc(sizeof(char*) * (ft_nbr_mots(str, c) + 1))))
-		return (0);
+		return (NULL);
 	i = 0;
 	while (i < ft_nbr_mots(str, c))
 	{

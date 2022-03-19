@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/17 13:42:19 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/19 03:13:49 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,19 @@ t_a     *checkcommand(t_a *stack, int ac, char **av)
     if (ac == 2)
     {
         tab = ft_split(av[1], ' ');
-        // printf("%s \n",tab[0]);
-        // printf("%s \n",tab[1]);
-        // printf("%s \n",tab[2]);
-        split_check(ac,tab,stack,tmp);
-
-        
+        stack = split_check(ac,tab,stack,tmp);
+   
     }
     else
         {
         while (i < ac)
         {
             nbr = ft_atoi(av[i]);
-            if(is_char_digit(av[i])== 0)
-                    error();
-            else if (valduplicate(stack,nbr) == 1)
-                error(); 
+            // printf("S= %s\n",av[i]);
+            if(is_char_digit(av[i])== 0 || av[i][0] == '\0')
+                  error();
+            if (valduplicate(stack,nbr) == 1)
+               error(); 
             if (!stack)
             {
                 stack = ft_lst_new(nbr);

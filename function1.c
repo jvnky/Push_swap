@@ -6,28 +6,28 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:24:08 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/17 13:55:53 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/19 05:16:40 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void split_check(int ac,char **tab,t_a *stack,t_a *tmp)
+t_a  *split_check(int ac,char **tab,t_a *stack,t_a *tmp)
 {
     int i;
-    //int j;
     int nbr;
 
     i = 0;
-   // j = 0;
-    
+    if (tab[0] == NULL)
+        error();
     while (tab[i])
-        {
-            nbr = ft_atoi(tab[i]);
-            printf("==> %d \n",nbr);
+        { 
+            // printf("tab = %s\n",tab[i]);
+
             if (is_char_digit(tab[i])== 0)
-                    error();
-            else if (valduplicate(stack,nbr) == 1)
+                   error();
+            nbr = ft_atoi(tab[i]);
+         if (valduplicate(stack,nbr) == 1)
                 error(); 
             if (!stack)
             {
@@ -42,5 +42,5 @@ void split_check(int ac,char **tab,t_a *stack,t_a *tmp)
             i++;
             stack->size_a++;
         }
-
+    return (stack);
 }
