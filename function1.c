@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:24:08 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/19 05:16:40 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/19 06:26:21 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ t_a  *split_check(int ac,char **tab,t_a *stack,t_a *tmp)
         error();
     while (tab[i])
         { 
-            // printf("tab = %s\n",tab[i]);
-
             if (is_char_digit(tab[i])== 0)
                    error();
             nbr = ft_atoi(tab[i]);

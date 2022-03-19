@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/19 03:13:49 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/19 06:26:22 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ t_a     *checkcommand(t_a *stack, int ac, char **av)
         while (i < ac)
         {
             nbr = ft_atoi(av[i]);
-            // printf("S= %s\n",av[i]);
             if(is_char_digit(av[i])== 0 || av[i][0] == '\0')
                   error();
             if (valduplicate(stack,nbr) == 1)
