@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 10:22:53 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/19 03:15:15 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/19 10:29:19 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     while(head)
     {
        printf("node => %d \n",head->val);
-       printf("Size => %d \n",head->size_a);
+      // printf("Size => %d \n",head->size_a);
        head = head->next;
      }
    ft_lst_free(head);
