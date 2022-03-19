@@ -61,6 +61,7 @@ t_a     *checkcommand(t_a *stack, int ac, char **av)
         while (i < ac)
         {
             nbr = ft_atoi(av[i]);
+            // printf("S= %s\n",av[i]);
             if(is_char_digit(av[i])== 0 || av[i][0] == '\0')
                   error();
             if (valduplicate(stack,nbr) == 1)
@@ -81,3 +82,4 @@ t_a     *checkcommand(t_a *stack, int ac, char **av)
         }
     return (stack); 
 }
+
