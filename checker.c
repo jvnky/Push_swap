@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/19 20:02:03 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/23 13:32:16 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	is_char_digit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		//printf(" ||  %c\n",str[i]);
 		if (!ft_isdigit(str[i]))
 			return (0);
 		i++;
@@ -48,14 +47,16 @@ t_a	*checkcommand(t_a *stack, int ac, char **av)
 
 	i = 1;
 	j = 0;
-
-	tab = ft_split(av[1], ' ');
-	while (tab[j])
+	//tab = ft_split(av[1], ' ');
+	while (i < ac)
 	{
-		if (av[i][0] == '\0')
-			error();
-		tab = ft_split(av[i], ' ');
-		stack = split_check(1, av, stack, tmp);
+		 if (av[i] == NULL)
+		 	error();
+		// if(ft_strlen(av[i])> 2)
+			tab = ft_split(av[i], ' ');
+		
+		printf("AC = %d\n",ac);
+		stack = split_check(tab, &stack, tmp);
 		i++;
 		j++;
 	}
