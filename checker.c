@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/25 16:32:08 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/25 17:37:37 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_char_digit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]) || str[i] == '-' && !ft_isdigit(str[i + 1]))
+		if (!ft_isdigit(str[i]) || (str[i] == '-' && !ft_isdigit(str[i + 1])))
 			return (0);
 		if (str[i] == '-' && ft_isdigit(str[i - 1]))
 			return (0);

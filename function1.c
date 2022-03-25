@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:24:08 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/25 16:31:27 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/25 18:45:44 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_a	*split_check(char **tab, t_a *stack)
 			error();
 		if (!stack)
 		{
-		stack = ft_lst_new(ft_atoi(tab[i]));
-		tmp = stack;
+			stack = ft_lst_new(ft_atoi(tab[i]));
+			tmp = stack;
 		}
 		else
 		{
@@ -35,35 +35,6 @@ t_a	*split_check(char **tab, t_a *stack)
 				error();
 			tmp = ft_lst_addback(&stack, ft_lst_new(ft_atoi(tab[i])));
 			stack->size_a++;
-		}
-	i++;
-	}
-	return (stack);
-}
-
-t_a	*split_check1(char **tab, t_a *stack)
-{
-	int		i;
-	t_a		*tmp;
-
-	i = 1;
-	if (tab == NULL)
-		error();
-	while (tab[i])
-	{
-		if (is_char_digit(tab[i]) == 0)
-			error();
-		if (!stack)
-		{
-		stack = ft_lst_new(ft_atoi(tab[i]));
-		tmp = stack;
-		}
-		else
-		{
-			if (valduplicate(stack, ft_atoi(tab[i])) == 1)
-				error();
-			tmp->next = ft_lst_new(ft_atoi(tab[i]));
-			tmp = tmp->next;
 		}
 	i++;
 	}
