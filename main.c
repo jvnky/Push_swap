@@ -6,35 +6,26 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 10:22:53 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/23 12:25:50 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/25 14:29:50 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void init_stack(t_a *stack)
+int	main(int argc, char **argv)
 {
-    stack->val = 0;
-    stack->size_a = 0;
-    stack->next= NULL;
+	t_a	*head;
 
-}
-
-int main(int argc, char **argv)
-{
-    t_a *head = NULL;
-
-   // init_stack(head);
-
-    if (argc < 2 || argv[1] == NULL)
-        error();
-    head = checkcommand(head,argc,argv);
-    while(head)
-    {
-       printf("node => %d \n",head->val);
-      // printf("Size => %d \n",head->size_a);
-       head = head->next;
-     }
-   ft_lst_free(head);
-    return (0);
+	head = NULL;
+	if (argc < 2 || argv[1] == NULL)
+		error();
+	head = checkcommand(head, argc, argv);
+	printf("Size => %d \n", head->size_a);
+	while (head)
+	{
+		printf("node => %d \n", head->val);
+		head = head->next;
+	}
+	ft_lst_free(head);
+	return (0);
 }

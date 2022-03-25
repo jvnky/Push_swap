@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/23 13:32:16 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/25 16:32:08 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	is_char_digit(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]) || str[i] == '-' && !ft_isdigit(str[i + 1]))
+			return (0);
+		if (str[i] == '-' && ft_isdigit(str[i - 1]))
 			return (0);
 		i++;
 	}
@@ -40,25 +42,28 @@ int	valduplicate(t_a *stack, int nbr)
 t_a	*checkcommand(t_a *stack, int ac, char **av)
 {
 	int		i;
-	int		nbr;
-	int		j;
-	char	**tab;
 	t_a		*tmp;
 
 	i = 1;
-	j = 0;
-	//tab = ft_split(av[1], ' ');
 	while (i < ac)
 	{
-		 if (av[i] == NULL)
-		 	error();
-		// if(ft_strlen(av[i])> 2)
-			tab = ft_split(av[i], ' ');
-		
-		printf("AC = %d\n",ac);
-		stack = split_check(tab, &stack, tmp);
+		checkerror(av[i], stack);
+		if (ft_issplitable(av[i]) == 1)
+			stack = split_check(ft_split(av[i], ' '), stack);
+		else
+		{
+			if (is_char_digit(av[i]) == 0)
+				error();
+			if (!stack)
+			{
+				stack = ft_lst_new(ft_atoi(av[i]));
+				tmp = stack;
+			}
+			else
+				tmp = ft_lst_addback(&stack, ft_lst_new(ft_atoi(av[i])));
+		}
 		i++;
-		j++;
+		stack->size_a++;
 	}
 	return (stack);
 }
