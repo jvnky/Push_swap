@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 SRC = $(FILES:.c=.o)
@@ -12,6 +12,7 @@ FILES = fonction.c\
 		listedfunction.c\
 		main.c\
 		checker.c\
+		rotation.c\
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $(FILES)

@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/25 17:37:37 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/25 19:17:36 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	valduplicate(t_a *stack, int nbr)
 t_a	*checkcommand(t_a *stack, int ac, char **av)
 {
 	int		i;
-	t_a		*tmp;
 
 	i = 1;
 	while (i < ac)
@@ -57,10 +56,9 @@ t_a	*checkcommand(t_a *stack, int ac, char **av)
 			if (!stack)
 			{
 				stack = ft_lst_new(ft_atoi(av[i]));
-				tmp = stack;
 			}
 			else
-				tmp = ft_lst_addback(&stack, ft_lst_new(ft_atoi(av[i])));
+				ft_lst_addback(&stack, ft_lst_new(ft_atoi(av[i])));
 		}
 		i++;
 		stack->size_a++;
