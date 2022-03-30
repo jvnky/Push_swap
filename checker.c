@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/25 19:17:36 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/30 16:56:39 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ t_a	*checkcommand(t_a *stack, int ac, char **av)
 				ft_lst_addback(&stack, ft_lst_new(ft_atoi(av[i])));
 		}
 		i++;
-		stack->size_a++;
 	}
 	return (stack);
 }

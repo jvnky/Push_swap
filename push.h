@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 10:24:40 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/27 08:01:09 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/30 19:14:24 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ t_a			*split_check(char **tab, t_a *stack);
 int			ft_issplitable(char *str);
 void		free_tab(char **str);
 void		checkerror(char *str, t_a *stack);
-void		swap_a(t_a *stack);
-
-
+void		ft_sab(t_a **stack);
+void		ft_ss(t_a **stacka, t_a **stackb);
+t_a			*ft_p(t_a **a, t_a *b);
+int			len(t_a *a);
+t_a			*ft_r(t_a *a);
 #endif

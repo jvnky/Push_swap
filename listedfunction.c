@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:59:41 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/25 18:03:45 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/30 17:14:45 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,12 @@ t_a	*ft_lst_addback(t_a **begin, t_a *new)
 void	ft_lst_free(t_a *begin)
 {
 	t_a	*tmp1;
-
-	while (begin && begin->next)
+	while (begin)
 	{
-		tmp1 = begin->next;
-		free(begin);
-		begin = tmp1;
+		tmp1 = begin;
+		begin = begin->next;
+		free(tmp1);
 	}
-	if (begin)
-		free(begin);
 }
 
 void	free_tab(char **str)
