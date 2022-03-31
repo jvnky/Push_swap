@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 07:53:33 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/31 13:17:54 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/31 17:14:21 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_ss(t_a **stacka, t_a **stackb)
 {
 	ft_sab(stacka);
 	ft_sab(stackb);
+	write(1, "ss\n", 3);
 }
 
 void	ft_p(t_a **a, t_a **b)
@@ -38,10 +39,14 @@ void	ft_p(t_a **a, t_a **b)
 	t_a	*tmp;
 
 	tmp = *a;
-	if (len(*a) > 1)
+	if (len(tmp) > 0 && tmp)
 	{
-		*b = ft_lst_new(tmp->val);
+		if (!b)
+			*b = ft_lst_new(tmp->val);
+		else
+			ft_lst_push(b, ft_lst_new(tmp->val));
 		*a = tmp->next;
+		free(tmp);
 	}
 }
 

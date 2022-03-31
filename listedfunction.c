@@ -6,11 +6,17 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:59:41 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/31 13:02:08 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/31 16:50:40 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
+
+void	ft_lst_push(t_a **begin, t_a *new)
+{
+	new->next = *begin;
+	*begin = new;
+}
 
 //creation maillon
 t_a	*ft_lst_new(int val)

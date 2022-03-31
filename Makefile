@@ -14,6 +14,7 @@ FILES = fonction.c\
 		checker.c\
 		rotation.c\
 		rotation1.c\
+		algo.c\
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $(FILES)

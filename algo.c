@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotation1.c                                        :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 13:16:30 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/31 14:12:07 by ychair           ###   ########.fr       */
+/*   Created: 2022/03/31 14:20:31 by ychair            #+#    #+#             */
+/*   Updated: 2022/03/31 17:16:36 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void	ft_rab(t_a **a, t_a **b)
+void	half(t_a **a, t_a **b)
 {
-	ft_r(a);
-	ft_r(b);
-	write(1, "rr\n", 3);
-}
+	int	i;
+	int	lent;
 
-void	ft_rr(t_a **head)
-{
-	t_a	*tmp;
-	t_a	*tmp1;
-
-	tmp = NULL;
-	tmp1 = *head;
-	if (len(*head) > 1)
+	i = 0;
+	lent = len(*a);
+	printf("Size => %d \n", len(*a));
+	while (i < lent / 2)
 	{
-		while (tmp1->next)
-		{
-			tmp = tmp1;
-			tmp1 = tmp1->next;
-		}
-		tmp->next = NULL;
-		tmp1->next = *head;
-		*head = tmp1;
+		ft_p(a, b);
+		write(1, "pb\n", 3);
+		i++;
 	}
-}
 
-void	ft_rrab(t_a **a, t_a **b)
-{
-	ft_rr(a);
-	ft_rr(b);
-	write(1, "rrr\n", 4);
 }
