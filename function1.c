@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:24:08 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/25 19:17:36 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/31 12:42:54 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_a	*split_check(char **tab, t_a *stack)
 		}
 	i++;
 	}
+	ft_freestr(tab);
 	return (stack);
 }
 
@@ -59,4 +60,17 @@ void	checkerror(char *str, t_a *stack)
 		error();
 	if (valduplicate(stack, ft_atoi(str)) == 1)
 		error();
+}
+
+void	ft_freestr(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

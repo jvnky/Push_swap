@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 10:24:40 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/30 19:14:24 by ychair           ###   ########.fr       */
+/*   Updated: 2022/03/31 14:08:13 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int			ft_atoi(const char *str);
 t_a			*ft_lst_addback(t_a **begin, t_a *new);
 t_a			*ft_lst_new(int val);
 void		ft_lst_free(t_a *begin);
+void		ft_freestr(char **str);
 int			ft_isdigit(char c);
 t_a			*checkcommand(t_a *stack_a, int ac, char **av);
 int			valduplicate(t_a *stack, int nbr);
@@ -41,7 +42,10 @@ void		free_tab(char **str);
 void		checkerror(char *str, t_a *stack);
 void		ft_sab(t_a **stack);
 void		ft_ss(t_a **stacka, t_a **stackb);
-t_a			*ft_p(t_a **a, t_a *b);
+void		ft_p(t_a **a, t_a **b);
 int			len(t_a *a);
-t_a			*ft_r(t_a *a);
+void		ft_r(t_a **head);
+void		ft_rab(t_a **a, t_a **b);
+void		ft_rr(t_a **head);
+void		ft_rrab(t_a **a, t_a **b);
 #endif

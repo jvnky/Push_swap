@@ -13,6 +13,7 @@ FILES = fonction.c\
 		main.c\
 		checker.c\
 		rotation.c\
+		rotation1.c\
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $(FILES)
