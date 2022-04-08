@@ -6,13 +6,13 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 07:53:33 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/31 17:14:21 by ychair           ###   ########.fr       */
+/*   Updated: 2022/04/08 17:47:20 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-void	ft_sab(t_a **stack)
+void	ft_sab(t_a **stack, int i)
 {
 	t_a	*tmp;
 	t_a	*suiv;
@@ -25,16 +25,18 @@ void	ft_sab(t_a **stack)
 		suiv->next = tmp;
 		*stack = suiv;
 	}
+	if (i == 1)
+		write(1, "sa\n", 3);
 }
 
 void	ft_ss(t_a **stacka, t_a **stackb)
 {
-	ft_sab(stacka);
-	ft_sab(stackb);
+	ft_sab(stacka, 0);
+	ft_sab(stackb, 0);
 	write(1, "ss\n", 3);
 }
 
-void	ft_p(t_a **a, t_a **b)
+void	ft_p(t_a **a, t_a **b, int i)
 {
 	t_a	*tmp;
 
@@ -48,9 +50,11 @@ void	ft_p(t_a **a, t_a **b)
 		*a = tmp->next;
 		free(tmp);
 	}
+	if (i == 1)
+		write(1, "pa\n", 3);
 }
 
-void	ft_r(t_a **head)
+void	ft_r(t_a **head, int i)
 {
 	t_a	*tmp;
 	t_a	*tmp1;
@@ -65,4 +69,6 @@ void	ft_r(t_a **head)
 		*head = tmp->next;
 		tmp->next = NULL;
 	}
+	if (i == 1)
+		write(1, "ra\n", 3);
 }
