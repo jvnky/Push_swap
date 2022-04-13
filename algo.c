@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:20:31 by ychair            #+#    #+#             */
-/*   Updated: 2022/04/08 17:57:28 by ychair           ###   ########.fr       */
+/*   Updated: 2022/04/13 06:10:23 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,30 @@
 
 void	bits(t_a **a, t_a **b)
 {
-	int	i;
-	int	max;
-	int	j;
+	int		i;
+	int		j;
+	int		size;
+	int		max_bits;
 
-	max = len(*a);
 	i = 0;
-	while (i < get_max_bits(a))
+	size = len(*a);
+	max_bits = get_max_bits(a);
+	while (i < max_bits)
 	{
 		j = 0;
-		while (j < max)
+		while (j < size)
 		{
-			if ((((*a)->val >> i) & 1) == 1)
+			if ((((*a)->index >> i) & 1) == 1)
 				ft_r(a, 1);
 			else
-			{
-				ft_p(a, b, 0);
-				write(1, "pb\n", 3);
-			}
+				ft_p(a, b, 2);
 			j++;
 		}
-		i++;
-		while ((*b) != NULL)
+		while (len(*b) != 0)
 			ft_p(b, a, 1);
+		i++;
 	}
 }
-
 
 int	get_max_bits(t_a **stack)
 {
@@ -48,12 +46,12 @@ int	get_max_bits(t_a **stack)
 	int	max_bits;
 
 	head = *stack;
-	max = head->val;
+	max = head->index;
 	max_bits = 0;
 	while (head)
 	{
-		if (head->val > max)
-			max = head->val;
+		if (head->index > max)
+			max = head->index;
 		head = head->next;
 	}
 	while ((max >> max_bits) != 0)
@@ -66,7 +64,6 @@ int	is_sorted(t_a *head)
 	t_a	*tmp;
 
 	tmp = head;
-
 	while (tmp->next)
 	{
 		if (tmp->val > tmp->next->val)
@@ -84,48 +81,24 @@ int	get_min(t_a **stack, int val)
 	int		min;
 
 	head = *stack;
-	min = head->val;
+	min = head->index;
 	while (head->next)
 	{
 		head = head->next;
-		if ((head->val < min) && head->val != val)
-			min = head->val;
+		if ((head->index < min) && head->index != val)
+			min = head->index;
 	}
 	return (min);
 }
 
-void	sort_3(t_a **stack_a)
+void	sort_3(t_a **a)
 {
-	t_a		*head;
 	int		min;
 	int		next_min;
 
-	head = *stack_a;
-	min = get_min(stack_a, -1);
-	next_min = get_min(stack_a, min);
-	if (is_sorted(*stack_a))
+	min = get_min(a, -1);
+	next_min = get_min(a, min);
+	if (is_sorted(*a))
 		return ;
-	if (head->val == min && head->next->val != next_min)
-	{
-		ft_r(stack_a, 1);
-		ft_sab(stack_a, 1);
-		ft_rr(stack_a, 1);
-	}
-	else if (head->val == next_min)
-	{
-		if (head->next->val == min)
-			ft_sab(stack_a, 1);
-		else
-			ft_rr(stack_a, 1);
-	}
-	else
-	{
-		if (head->next->val == min)
-			ft_r(stack_a, 1);
-		else
-		{
-			ft_sab(stack_a, 1);
-			ft_rr(stack_a, 1);
-		}
-	}
+	ft_tricks(a, min, next_min);
 }

@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 07:53:33 by ychair            #+#    #+#             */
-/*   Updated: 2022/04/08 17:47:20 by ychair           ###   ########.fr       */
+/*   Updated: 2022/04/13 01:35:23 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,16 @@ void	ft_p(t_a **a, t_a **b, int i)
 	if (len(tmp) > 0 && tmp)
 	{
 		if (!b)
-			*b = ft_lst_new(tmp->val);
+			*b = ft_lst_new(tmp->val, tmp->index);
 		else
-			ft_lst_push(b, ft_lst_new(tmp->val));
+			ft_lst_push(b, ft_lst_new(tmp->val, tmp->index));
 		*a = tmp->next;
 		free(tmp);
 	}
 	if (i == 1)
 		write(1, "pa\n", 3);
+	if (i == 2)
+		write(1, "pb\n", 3);
 }
 
 void	ft_r(t_a **head, int i)

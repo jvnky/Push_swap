@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:44:34 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/31 12:42:22 by ychair           ###   ########.fr       */
+/*   Updated: 2022/04/13 01:19:17 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ t_a	*checkcommand(t_a *stack, int ac, char **av)
 				error();
 			if (!stack)
 			{
-				stack = ft_lst_new(ft_atoi(av[i]));
+				stack = ft_lst_new(ft_atoi(av[i]), 0);
 			}
 			else
-				ft_lst_addback(&stack, ft_lst_new(ft_atoi(av[i])));
+				ft_lst_addback(&stack, ft_lst_new(ft_atoi(av[i]), 0));
 		}
 		i++;
 	}

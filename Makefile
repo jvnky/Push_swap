@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 SRC = $(FILES:.c=.o)
 
@@ -15,6 +15,9 @@ FILES = fonction.c\
 		rotation.c\
 		rotation1.c\
 		algo.c\
+		algo1.c\
+		sorted.c\
+
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $(FILES)
@@ -22,7 +25,7 @@ FILES = fonction.c\
 $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
-all: $(NAME)
+all: $(NAME) clean
 
 clean:
 	@rm -f $(SRC)

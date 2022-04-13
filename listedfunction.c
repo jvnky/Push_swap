@@ -6,7 +6,7 @@
 /*   By: ychair <ychair@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 12:59:41 by ychair            #+#    #+#             */
-/*   Updated: 2022/03/31 16:50:40 by ychair           ###   ########.fr       */
+/*   Updated: 2022/04/13 01:17:59 by ychair           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void	ft_lst_push(t_a **begin, t_a *new)
 }
 
 //creation maillon
-t_a	*ft_lst_new(int val)
+t_a	*ft_lst_new(int val, int index)
 {
 	t_a	*tmp;
 
 	tmp = malloc(sizeof(t_a));
 	tmp->val = val;
+	tmp->index = index;
 	tmp->next = NULL;
 	return (tmp);
 }
